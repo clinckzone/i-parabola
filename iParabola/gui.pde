@@ -13,7 +13,7 @@ public void custom_slider2_change1(GCustomSlider source, GEvent event) {
   detail = custom_slider2.getValueI();
 }
 
-public void createGUI(){
+public void createGUI() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
@@ -41,6 +41,6 @@ public void createGUI(){
   custom_slider2.addEventHandler(this, "custom_slider2_change1");
 }
 
-GCheckbox checkbox1; 
-GCustomSlider custom_slider1;  
-GCustomSlider custom_slider2; 
+GCheckbox checkbox1;
+GCustomSlider custom_slider1;
+GCustomSlider custom_slider2;

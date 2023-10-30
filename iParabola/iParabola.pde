@@ -1,16 +1,16 @@
 import g4p_controls.*;
 
-float x1;          //These two variables here, x1 and y1 store the x and y 
-float y1;          //positions of the corresponding control point that they represent
+float x1; //These two variables here, x1 and y1 store the x and y 
+float y1; //positions of the corresponding control point that they represent
 
-float x2;          //Same here :)
+float x2; //Same here :)
 float y2;
 
-float x3;          //and here  :)
+float x3; //and here  :)
 float y3;
 
-boolean tag1 = false;    //These variables help in better handling of                                                 
-boolean tag2 = false;    //their corresponding control points
+boolean tag1 = false; //These variables help in better handling of
+boolean tag2 = false; //their corresponding control points
 boolean tag3 = false;
 
 boolean showGrid = true;
@@ -21,7 +21,7 @@ ArrayList<PVector> line2;
 ArrayList<PVector> interPoints;
 
 float lineWeight = 3;
-int detail = 10;         //used for controlling smoothness of the parabola
+int detail = 10; //used for controlling smoothness of the parabola
 
 PGraphics pg;
 
@@ -92,7 +92,7 @@ void display()  {
   pg.noStroke();  
   pg.ellipse( x1, y1, 20, 20);
   pg.ellipse( x2, y2, 20, 20);
-  pg.ellipse( x3, y3, 20, 20);  
+  pg.ellipse( x3, y3, 20, 20);
 }
 
 /*
@@ -103,12 +103,12 @@ Similarly, divide line joining c2 and c3 into 'n' parts. Mark 'n' division point
 (x1, y1) itself. Similarly mark 'n' division points on c2-c3 line starting from (x3, y3) itself. 
 Now join the 'i'th division point(from c1) to 'n - i'th division point(from c3). The result will be a parabola :') 
 */
-void drawParabola()  {   
+void drawParabola()  {
     line1.clear();
     line2.clear();
     interPoints.clear();
     
-    for(int i  = detail; i != 0; i--)  {      
+    for(int i  = detail; i != 0; i--)  {
       float x_a = ((i*x1) + ((detail-i)*x2))/detail ;
       float y_a = ((i*y1) + ((detail-i)*y2))/detail ;
       float x_b = ((i*x2) + ((detail-i)*x3))/detail ;
@@ -156,7 +156,7 @@ void drawParabola()  {
     }
 }
 
-void controlC1()  { 
+void controlC1()  {
     //if cursor is over the control point with mouse pressed then move it with the cursor
     if( (mouseX<=(x1+20)) && (mouseX>=(x1-20)) && (mouseY<=(y1+20)) && (mouseY>=(y1-20)) && mousePressed )  {
       x1 = mouseX;
@@ -172,10 +172,10 @@ void controlC1()  {
     //else leave it alone
     else  {
       tag1 = false;
-    }    
+    }
 }
 
-void controlC2()  {      
+void controlC2()  {
     if( (mouseX<=(x2+20)) && (mouseX>=(x2-20)) && (mouseY<=(y2+20)) && (mouseY>=(y2-20)) && mousePressed )  {
       x2 = mouseX;
       y2 = mouseY;
@@ -187,10 +187,10 @@ void controlC2()  {
     }
     else  {
       tag2 = false;
-    }    
+    }
 }
 
-void controlC3()  {  
+void controlC3()  {
     if( (mouseX<=(x3+20)) && (mouseX>=(x3-20)) && (mouseY<=(y3+20)) && (mouseY>=(y3-20)) && mousePressed )  {
       x3 = mouseX;
       y3 = mouseY;
@@ -202,9 +202,5 @@ void controlC3()  {
     }
     else  {
       tag3 = false;
-    }    
+    }
 }
-
-
-
-  
